@@ -1,0 +1,24 @@
+.cuisine_img {
+    width: 150px; /* Adjust the width as needed */
+    height: 150px; /* Adjust the height as needed */
+    object-fit: cover; /* Ensures the image scales well without distortion */
+    z-index: 0;
+}
+.width_80{
+    width: 90%;
+}
+  
+.width_20{
+    width: 20%;
+
+}
+.text-success{
+    /* border-radius: 20%; */
+    margin: 0px 20px;
+    padding:6px 0px;
+    z-index: 1;
+    margin-top: -15%;
+    font-size: larger;
+    font-weight: bolder;
+}
+  

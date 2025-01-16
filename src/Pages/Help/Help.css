@@ -1,0 +1,25 @@
+.bgColor{
+    background-color: #37718e;
+}
+
+.listbgColor{
+    background-color: #282c3f;
+}
+.listStyle{
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.active:active{
+    background-color: #FBFBFB;
+}
+
+.Hdark{
+    color: rgb(65, 65, 65);
+}
+.Hdark:hover{
+    color: black;
+    /* font-size:16.2px; */
+    font-weight:500;
+}

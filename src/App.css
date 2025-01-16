@@ -1,0 +1,20 @@
+/* *{
+    z-index: 0;
+} */
+
+.f-height {
+  height: 100%;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.orange-hover:hover {
+  color: #ff5200;
+}
+.border-orange {
+  border-style: solid;
+  border-color: #ff5200;
+  background-color: white;
+}

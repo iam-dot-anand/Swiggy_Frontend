@@ -1,0 +1,15 @@
+
+
+.footer-box{
+    /* background-color: #dde5eb; */
+    background-color: rgb(240, 240, 245);
+}
+.footer-content-box{
+    margin: 0 60px;
+}
+.list-style{
+    list-style: none;
+}
+li{
+    cursor: pointer;
+}

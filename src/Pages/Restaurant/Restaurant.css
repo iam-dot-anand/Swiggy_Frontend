@@ -1,0 +1,31 @@
+.mapped-data {
+  display: grid; 
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  ); 
+  gap: 40px; 
+  margin-top: 30px;
+}
+
+.cards {
+  cursor: pointer;
+  overflow: hidden; 
+  transition: transform 0.3s ease-in, box-shadow 0.3s ease-in; 
+}
+
+.cards:hover {
+  transform: translateY(-8px);
+}
+
+.cards img {
+  width: 100%; 
+  border-radius: 10px;
+  height: 150px; 
+  object-fit: cover; 
+  margin-bottom: 12px;
+}
+.rating{
+   font-size: smaller;
+   
+}

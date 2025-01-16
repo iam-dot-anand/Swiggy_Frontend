@@ -1,0 +1,25 @@
+.sliderPointer{
+    background-color: rgba(2, 6, 12, 0.15);
+    height: 34px;
+    width: 34px;
+    border-radius: 100%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;        
+}
+.slidesImg{
+    display: block;
+    height: 180px;
+    width: 144px;
+    transition-duration: 5ms;
+    
+}
+slidesImg::after,::before{
+    -webkit-text-size-adjust: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.transDuration{
+    transition-duration: 1s;
+}

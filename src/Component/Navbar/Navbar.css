@@ -1,0 +1,48 @@
+.align{
+    display: flex;
+    align-items: center;
+}
+.bgc{
+    background-color: #f0f1f2;
+}
+.orange{
+    background-color:#ff5200;
+
+}
+.list{
+    list-style-type: none;
+    cursor: pointer;
+    font-weight: 500;
+
+}
+/* .list:hover{
+    color: #ff5200;
+} */
+.text-orange{
+    color: #ff5200;
+}
+.toggle{
+    position: absolute;
+    width: 35%;
+    height: 100%;
+    background-color: #FFFFFF;
+    transition-duration: 0.4s; 
+}
+
+.list a {
+    text-decoration: none;
+    color: black;
+}
+  
+.list a:hover {
+    color: #ff5200; 
+    text-decoration: none; 
+}
+
+.focus:focus, input:focus{
+    outline: none;
+}
+
+.bgc{
+    box-shadow: 0 0 6px 3px rgba(181, 181, 181, 0.3);
+}
