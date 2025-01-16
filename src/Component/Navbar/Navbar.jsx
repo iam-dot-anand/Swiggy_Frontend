@@ -18,7 +18,7 @@ import { useSelector } from "react-redux";
 
 export default function Navbar() {
   const { cartData, loginReducer } = useSelector((state) => state);
-  console.log("cart data", loginReducer);
+  console.log("logedIn data", loginReducer);
 
   const [logedInName, setLogedInName] = useState("");
 

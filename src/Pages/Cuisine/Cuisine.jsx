@@ -10,12 +10,21 @@ const Cuisine = () => {
     (state) => state.CuisineData
   );
   const { loginReducer } = useSelector((state) => state);
+  console.log("loginreducer cuisine", loginReducer);
+
+  const [logedIn, setLogedIn] = useState(null);
+
+  useEffect(() => {
+    setLogedIn(localStorage.getItem("Token"));
+  },[]);
 
   const dispatch = useDispatch();
   function addInCart(item) {
-    if (loginReducer.success) {
+    console.log({logedIn});
+    
+    if (logedIn) {
       dispatch(AddToCart(item));
-    } else {
+    }else{
       toast.warn("Please Login");
     }
   }

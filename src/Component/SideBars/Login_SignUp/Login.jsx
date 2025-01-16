@@ -14,7 +14,7 @@ const Login = () => {
     email: "",
     password: "",
   });
-
+  let toastField = undefined;
   const handleChange = (e) => {
     const { name, value } = e.target;
     const updatedInfo = { ...loginInfo, [name]: value };
@@ -25,25 +25,23 @@ const Login = () => {
     e.preventDefault();
     const { email, password } = loginInfo;
     if (!email || !password) {
-      toast.error("Please fill in all fields!");
+      if (toastField) toast.dismiss(toastField);
+      !email
+        ? showTost("Please enter email fields!")
+        : showTost("Please enter password fields!");
+      // console.log(toast.dismiss(toastField),'toast')
       return;
     } else {
       dispatch(LOGIN_REQUEST(loginInfo));
       setLoginInfo({
         email: "",
         password: "",
-      })
+      });
     }
   };
-  useEffect(() => {
-    if (logedIn.success) {
-      toast.success(logedIn.msg);
-      navigate("/");
-    } else {
-      console.log("tost fail");
-      toast.error(logedIn.msg);
-    }
-  }, [logedIn.success]);
+  const showTost = (message) => {
+    toastField = toast.error(message);
+  };
 
   return (
     <div>
@@ -81,7 +79,6 @@ const Login = () => {
       </form>
       <ToastContainer />
     </div>
-    
   );
 };
 

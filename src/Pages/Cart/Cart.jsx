@@ -5,7 +5,7 @@ import EmptyCart from "./EmptyCart";
 
 export default function Cart() {
   const cartData = useSelector((state) => state.cartData);
-  const { restaurantName } = useSelector((state) => state.CuisineData);
+  // const { restaurantName } = useSelector((state) => state.CuisineData);
   console.log("cartData", cartData);
 
   let TotalAmount = cartData.length
@@ -31,7 +31,8 @@ export default function Cart() {
         <EmptyCart />
       ) : (
         <div className="d-flex justify-content-between gap-5">
-          <div className="w-75" style={{ height: "75vh", overflowY: "auto" }}>
+          <div className="w-75 " style={{ height: "75vh", overflowY: "auto" }}>
+            <h2 className="ms-2">YOUR CUISINE</h2>
             <table className="table table-bordered table-hover text-center">
               <thead>
                 <tr>
@@ -71,16 +72,16 @@ export default function Cart() {
               </tbody>
             </table>
           </div>
-          <div className="w-25 d-flex flex-column text-center">
-            <h2>Bill Details</h2>
-            <table className="table table-bordered">
+          <div className="w-25 d-flex flex-column ">
+            <h2 className="ms-2">CASH MEMO</h2>
+            <table className="table table-bordered text-start">
               <tbody>
                 <tr>
-                  <td>Total Amount</td>
-                  <td>{TotalAmount}</td>
+                  <td className="fw-bold">Total Amount</td>
+                  <td>₹{TotalAmount}</td>
                 </tr>
                 <tr>
-                  <td>Discount</td>
+                  <td className="fw-bold">Discount</td>
                   <td>
                     <button
                       onClick={discount}
@@ -91,8 +92,8 @@ export default function Cart() {
                   </td>
                 </tr>
                 <tr>
-                  <td>To Pay</td>
-                  <td>{toPay ? toPay : TotalAmount}</td>
+                  <td className="fw-bold">To Pay</td>
+                  <td>₹{toPay ? toPay : TotalAmount}</td>
                 </tr>
               </tbody>
             </table>
