@@ -40,7 +40,6 @@ export const Restaurants = () => {
               >
                 <img src={item.image} alt="" className="" />
                 <div className="ms-2">
-                  {/* <p className="mb-0 tag">{item.tag}</p> */}
                   <p className="mb-0 fw-bold">{item.restaurantName}</p>
                   <p className="mb-0 gap-2 d-flex rating fw-bolder">
                     <span className="bg-success fs-6 text-light p-1 rounded-circle d-flex">
