@@ -1,11 +1,9 @@
 .mapped-data {
   display: grid; 
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(250px, 1fr)
-  ); 
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
   gap: 40px; 
   margin-top: 30px;
+  position: relative; /* Positioning context for the loader */
 }
 
 .cards {
@@ -25,7 +23,12 @@
   object-fit: cover; 
   margin-bottom: 12px;
 }
-.rating{
+
+.rating {
    font-size: smaller;
-   
+}
+
+.loader {
+  color: #fd7e14;
+  left: 50%;
 }

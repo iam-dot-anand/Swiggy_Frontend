@@ -7,6 +7,7 @@ import { CuisineByID } from "../../Redux/Action/cuisineAction";
 import Filter from "../filter/filter";
 import Cuisine from "../Cuisine/Cuisine";
 import { Link } from "react-router-dom";
+import { HashLoader } from "react-spinners";
 
 export const Restaurants = () => {
   const getRestaurant = useSelector((state) => state.ProductData);
@@ -24,33 +25,38 @@ export const Restaurants = () => {
       </div>
       <Filter />
       <div className="mapped-data">
-        {getRestaurant?.map((item) => (
-          <Link to={"/cuisine"} style={{textDecoration:"none", color:"black"}}>
-            <div
-              key={item.id}
-              className="cards"
-              onClick={() => dispatch(CuisineByID(item._id , item.restaurantName))}
+        {getRestaurant?.length > 0 ? (
+          getRestaurant?.map((item) => (
+            <Link
+              to={"/cuisine"}
+              style={{ textDecoration: "none", color: "black" }}
             >
-              <img src={item.image} alt="" className="" />
-              <div className="ms-2">
-                {/* <p className="mb-0 tag">{item.tag}</p> */}
-                <p className="mb-0 fw-bold">{item.restaurantName}</p>
-                <p className="mb-0 gap-2 d-flex rating fw-bolder">
-                  <span className="bg-success fs-6 text-light p-1 rounded-circle d-flex">
-                    <TiStarFullOutline />
-                  </span>
-                  {item.rating}
-                </p>
-                <p className="mb-0 text-secondary">{item.desc}</p>
-                <p className="mb-0 text-secondary">{item.address}</p>
-                {/* <button onClick={() => addInCart(item)}>Add to cart</button> */}
-                {/* <button onClick={() => dispatch(RemoveToCart(item.id))}>
-            Remove to cart
-          </button> */}
+              <div
+                key={item.id}
+                className="cards"
+                onClick={() =>
+                  dispatch(CuisineByID(item._id, item.restaurantName))
+                }
+              >
+                <img src={item.image} alt="" className="" />
+                <div className="ms-2">
+                  {/* <p className="mb-0 tag">{item.tag}</p> */}
+                  <p className="mb-0 fw-bold">{item.restaurantName}</p>
+                  <p className="mb-0 gap-2 d-flex rating fw-bolder">
+                    <span className="bg-success fs-6 text-light p-1 rounded-circle d-flex">
+                      <TiStarFullOutline />
+                    </span>
+                    {item.rating}
+                  </p>
+                  <p className="mb-0 text-secondary">{item.desc}</p>
+                  <p className="mb-0 text-secondary">{item.address}</p>
+                </div>
               </div>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          ))
+        ) : (
+          <HashLoader className="loader " loading={true} color="#fd7e14" />
+        )}
       </div>
       <hr></hr>
     </div>
