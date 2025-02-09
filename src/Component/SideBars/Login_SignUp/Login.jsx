@@ -29,7 +29,6 @@ const Login = () => {
       !email
         ? showTost("Please enter email fields!")
         : showTost("Please enter password fields!");
-      // console.log(toast.dismiss(toastField),'toast')
       return;
     } else {
       dispatch(LOGIN_REQUEST(loginInfo));
