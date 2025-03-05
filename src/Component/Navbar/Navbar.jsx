@@ -8,12 +8,9 @@ import { RiDiscountPercentLine } from "react-icons/ri";
 import { IoHelpBuoyOutline } from "react-icons/io5";
 import { FaRegUser } from "react-icons/fa";
 import { FiShoppingCart } from "react-icons/fi";
-import { RxCross1 } from "react-icons/rx";
-import { CiGps } from "react-icons/ci";
-import { RxCountdownTimer } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import { RightSideBar } from "../SideBars/RightSideBar";
-import LeftSideBar from "../SideBars/LeftSideBar";
+import { LuMenu } from "react-icons/lu";
 import { useSelector } from "react-redux";
 
 export default function Navbar() {
@@ -23,11 +20,12 @@ export default function Navbar() {
   const [logedInName, setLogedInName] = useState("");
 
   useEffect(() => {
-    setLogedInName(localStorage.getItem("userName"))
+    setLogedInName(localStorage.getItem("userName"));
   });
 
   const [leftToggle, setRightToggle] = useState(false);
   const [signUpToggle, setSignUpToggle] = useState(true);
+  const [menu, setMenu]=useState(false);
 
   const showLeftSideMenu = () => {
     setRightToggle(true);
@@ -41,6 +39,9 @@ export default function Navbar() {
   const hideRightSideMenu = () => {
     setSignUpToggle(true);
   };
+  const handleMenue=()=>{
+    setMenu(!menu);
+  }
 
   const navLink = [
     {
@@ -71,6 +72,9 @@ export default function Navbar() {
     },
   ];
 
+
+  
+
   return (
     <>
       {/* Left SideBar */}
@@ -89,45 +93,11 @@ export default function Navbar() {
           onClick={(e) => e.stopPropagation()}
           style={{ left: leftToggle ? "0%" : "-100%" }}
         >
-          <div className="my-4" style={{ cursor: "pointer" }}>
-            <RxCross1 onClick={hideLeftSideMenu} />
-          </div>
-          <div className="my-4">
-            <input
-              className="w-100 p-3 border-muted"
-              type="text"
-              placeholder="Search for area, street name.."
-            />
-          </div>
-          <div className="d-flex align-items-baseline gap-2 border border-muted my-4 p-3">
-            <div className="fs-4">
-              <CiGps />
-            </div>
-            <div>
-              <span className="list">Get current location</span>
-              <br />
-              <span className="text-muted">Using GPS </span>
-            </div>
-          </div>
-          <div className="border border-muted p-3">
-            <div className="ps-4">
-              <p>RECENT SEARCH</p>
-            </div>
-            <div className="d-flex align-items-baseline gap-2 ">
-              <div className="">
-                <RxCountdownTimer />
-              </div>
-              <div>
-                <span className="list">Lucknow </span>
-                <br />
-                <span>Uttar Pradesh, India</span>
-              </div>
-            </div>
-          </div>
+          {/* Sidebar content */}
         </div>
       </div>
 
-      {/* Right SideBar,-->Login,-->SignUp */}
+      {/* Right SideBar --> Login --> SignUp */}
       {!signUpToggle && (
         <div
           className="w-100 position-fixed z-1"
@@ -137,22 +107,15 @@ export default function Navbar() {
             height: "100%",
             opacity: signUpToggle ? 0 : 1,
             visibility: signUpToggle ? "hidden" : "visible",
-            // display: loginReducer.success ? "none" : "block",
           }}
         >
-          <RightSideBar
-            hideLogin={hideRightSideMenu}
-            showLogin={signUpToggle}
-          />
+          <RightSideBar hideLogin={hideRightSideMenu} showLogin={signUpToggle} />
         </div>
       )}
 
       <div className="bgc bg-white">
-        <div
-          className="container d-flex justify-content-between py-3 "
-          style={{ alignItems: "center" }}
-        >
-          <div className="d-flex gap-4 " style={{ alignItems: "center" }}>
+        <div className="container navbar-container">
+          <div className="d-flex gap-4" style={{ alignItems: "center" }}>
             <div className="text-light rounded-4 fs-2 px-2 pb-1 orange">
               <Link to={"/"} style={{ color: "white" }}>
                 <SiSwiggy />
@@ -161,7 +124,7 @@ export default function Navbar() {
             <div className="">
               <a className="text-orange fs-5" href="###">
                 Other
-              </a>{" "}
+              </a>
               Lucknow, U.P, India
               <span
                 className="text-orange fs-4 cursor"
@@ -172,11 +135,12 @@ export default function Navbar() {
               </span>
             </div>
           </div>
-          <div className="d-flex gap-5">
-            <li className="list align ">
+
+          <div className="menue" ><LuMenu onClick={handleMenue} /></div>
+          <div className={`nav-links  ${menu ? 'showNav':'hideNav'}`}>
+            <li className="list align">
               <Link className="align gap-2">
-                {navLink[0].logo}
-                Swiggy Corporate
+                {navLink[0].logo} Swiggy Corporate
               </Link>
             </li>
             <li className="list align">

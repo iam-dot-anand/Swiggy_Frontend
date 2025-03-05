@@ -5,12 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { ProductToCart } from "../../Redux/Action/productAction";
 import { CuisineByID } from "../../Redux/Action/cuisineAction";
 import Filter from "../filter/filter";
-import Cuisine from "../Cuisine/Cuisine";
+// import Cuisine from "../Cuisine/Cuisine";
 import { Link } from "react-router-dom";
 import { HashLoader } from "react-spinners";
 
 export const Restaurants = () => {
   const getRestaurant = useSelector((state) => state.ProductData);
+  console.log("getRestaurant",getRestaurant);
   //   const getCuisine = useSelector((state) => state.CuisineData);
   const dispatch = useDispatch();
   useEffect(() => {

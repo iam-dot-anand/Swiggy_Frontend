@@ -3,9 +3,6 @@ import './Carosule.css';
 import { IoMdArrowBack } from "react-icons/io";
 import { IoMdArrowForward } from "react-icons/io";
 
-
- 
-
 export const YourMind = () => {
     
     const slidesImg = [
@@ -67,20 +64,24 @@ export const YourMind = () => {
           img: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/8f508de7-e0ac-4ba8-b54d-def9db98959e_Rasmalai.png",
         },
       ];
+      
       const[slidesData, setSlidesData]=useState(slidesImg);
-    //   setSlides(slidesData);
-    const [slide, setSlides]=useState(0);
+      const [slide, setSlides]=useState(0);
 
-    const nextSlide=()=>{
-        console.log(slidesImg.length);
-        console.log(slide);
-        if(slidesImg.length-2 === slide) return false;
-        setSlides(slide+3)
-    }
-    const prevSlide=()=>{
-        if(slide===0) return false;
-        setSlides(slide-3)
-    }
+    const nextSlide = () => {
+        
+        if (slide + 3 < slidesData.length) {
+            setSlides(slide + 3);
+        }
+    };
+
+    const prevSlide = () => {
+        
+        if (slide > 0) {
+            setSlides(slide - 3);
+        }
+    };
+
   return (
     <div className="">
         <div className="d-flex justify-content-between mb-2">
@@ -88,24 +89,34 @@ export const YourMind = () => {
                   What's on your mind?
             </div>
             <div className="d-flex gap-3">
-                <div className="sliderPointer" onClick={prevSlide}><IoMdArrowBack /></div>
-                <div className="sliderPointer" onClick={nextSlide}><IoMdArrowForward /></div>
+                <div 
+                    className="sliderPointer" 
+                    onClick={prevSlide}
+                    style={{ opacity: slide === 0 ? 0.5 : 1 }} 
+                >
+                    <IoMdArrowBack />
+                </div>
+                <div 
+                    className="sliderPointer" 
+                    onClick={nextSlide}
+                    style={{ opacity: slide + 3 >= slidesData.length ? 0.5 : 1 }} 
+                >
+                    <IoMdArrowForward />
+                </div>
             </div>
         </div>
         <div className="d-flex gap-5" style={{overflow:"hidden"}}>
             {
-                slidesData.map((data,index)=>{
-                    return(
-                        <div style={{transform:`translateX(-${slide * 100}%)`}} key={index} className="transDuration">
-                            <img src={data.img} alt="slides_img" className="slidesImg bg-dark"/>
+                slidesData.map((data, index) => {
+                    return (
+                        <div style={{ transform: `translateX(-${slide * 100}%)` }} key={index} className="transDuration">
+                            <img src={data.img} alt="slides_img" className="slidesImg bg-dark" />
                         </div>
-                    )
+                    );
                 })
             }
-            
         </div>
-        <hr className="my-5"style={{border:"1px solid", backgroundColor:'rgba(2,6,12,0.05)'}}></hr>
-     
+        <hr className="my-5" style={{ border: "1px solid", backgroundColor: 'rgba(2,6,12,0.05)' }}></hr>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import React from "react";
+import "./filter.css"
 import { CiFilter } from "react-icons/ci";
 import { IoIosArrowDown } from "react-icons/io";
 

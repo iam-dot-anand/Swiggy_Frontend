@@ -1,48 +1,100 @@
-.align{
-    display: flex;
-    align-items: center;
-}
-.bgc{
+.bgc {
     background-color: #f0f1f2;
-}
-.orange{
-    background-color:#ff5200;
-
-}
-.list{
+    box-shadow: 0 0 6px 3px rgba(181, 181, 181, 0.3);
+  }
+  
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    flex-wrap: wrap; 
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    overflow: hidden; 
+  }
+  
+  .list {
     list-style-type: none;
     cursor: pointer;
     font-weight: 500;
-
-}
-/* .list:hover{
+    margin: 0; 
+  }
+  
+  .list a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .list a:hover {
     color: #ff5200;
-} */
-.text-orange{
+  }
+  
+  .text-orange {
     color: #ff5200;
-}
-.toggle{
+  }
+  
+  .align {
+    display: flex;
+    align-items: center;
+  }
+  
+  .orange {
+    background-color: #ff5200;
+  }
+  
+  .bgc {
+    box-shadow: 0 0 6px 3px rgba(181, 181, 181, 0.3);
+  }
+  
+  .toggle {
     position: absolute;
     width: 35%;
     height: 100%;
     background-color: #FFFFFF;
-    transition-duration: 0.4s; 
-}
+    transition-duration: 0.4s;
+  }
+  .menue{
+    display: none;
+  }
 
-.list a {
-    text-decoration: none;
-    color: black;
-}
-  
-.list a:hover {
-    color: #ff5200; 
-    text-decoration: none; 
-}
-
-.focus:focus, input:focus{
-    outline: none;
-}
-
-.bgc{
-    box-shadow: 0 0 6px 3px rgba(181, 181, 181, 0.3);
-}
+  @media (max-width: 900px) {
+    .nav-links{
+        display: none;
+    }
+    .menue{
+        display: block;
+        font-weight: bolder;
+        font-size: xx-large;
+        color:#ff5200;
+        
+    }
+    .showNav{
+        display: block;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        position:fixed;
+        align-items:first baseline;
+        justify-content:flex-start;
+        width: 40%;
+        height: 70vh;
+        top: 10%;
+        left: 35%;
+        background-color: #ff5200;
+        opacity: 0.95;
+        padding-top: 40px ;
+        padding-left: 20px;
+        margin-right: 50px;
+        border-radius: 10px;
+    }
+    .list a{
+        color: #f0f1f2;
+        font-size: larger;
+        font-weight: bolder;
+    }
+  }
