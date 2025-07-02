@@ -8,27 +8,30 @@ import { useSelector } from "react-redux";
 export const TopRestaurant = () => {
 
   const getRestaurant = useSelector((state) => state.ProductData);
-
-  // const [slideData, setSlidesData] = useState(getRestaurant);
   const [slide, setSlides] = useState(0);
   const nextSlide = () => {
-    console.log(getRestaurant.length);
-    if (getRestaurant.length - 1 === slide) return false;
-    setSlides(slide + 3);
-  };
-  const prevSlide = () => {
-    setSlides(slide - 3);
-  };
+        
+        if (slide  < getRestaurant.length) {
+            setSlides(slide + 3);
+        }
+    };
+
+    const prevSlide = () => {
+        
+        if (slide > 0) {
+            setSlides(slide - 3);
+        }
+    };
 
   return (
     <div className="">
       <div className="d-flex justify-content-between mb-2">
         <div className="fw-bold fs-4">Top restaurant chains in Lucknow</div>
         <div className="d-flex gap-3">
-          <div className="sliderPointer" onClick={prevSlide}>
+          <div className="sliderPointer" onClick={prevSlide} style={{ opacity: slide === 0 ? 0.5 : 1 }} >
             <IoMdArrowBack />
           </div>
-          <div className="sliderPointer" onClick={nextSlide}>
+          <div className="sliderPointer" onClick={nextSlide} style={{ opacity: slide + 3 >= getRestaurant.length ? 0.5 : 1 }}>
             <IoMdArrowForward />
           </div>
         </div>

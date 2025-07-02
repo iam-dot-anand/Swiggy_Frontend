@@ -5,7 +5,7 @@ function* productsSaga() {
   let {result} = yield responseData.json();
 
   let payload  = result
-  console.log("this saga data",payload);
+  // console.log("this saga data",payload);
   
   yield put({ type: "SetProductData", payload });
 }

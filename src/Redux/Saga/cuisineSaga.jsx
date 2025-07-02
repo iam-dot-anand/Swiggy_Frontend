@@ -9,7 +9,7 @@ function* cuisineSaga(action) {
   let productById = product.filter((items) => items.restaurant_id === id);
   // console.log("cuisineData---->",productById);
   let payload = {productById, restaurantName};
-  console.log("this cuisine saga data", payload);
+  // console.log("this cuisine saga data", payload);
 
   yield put({ type: "SetCuisineData", payload });
 }

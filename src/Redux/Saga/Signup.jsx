@@ -12,7 +12,7 @@ function* SignupSaga(action) {
     });
 
     const result = yield response.json();
-    console.log("signup saga",result)
+    // console.log("signup saga",result)
 
     if (!result.success) {
       yield put({ type: "SIGNUP_FAILURE", error: result });

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { YourMind } from "../../Component/Carosuels/YourMind";
 import { TopRestaurant } from "../../Component/Carosuels/TopRestaurant";
 import NearMe from "../../Component/NearMe/NearMe";
@@ -9,6 +9,13 @@ import { Restaurants } from "../Restaurant/Restaurants";
 
 
 export const Home = () => {
+
+  useEffect(()=>{
+    // console.log('componnet did mount');
+    return ()=>{
+      // console.log('componnet unmount');
+    }
+  })
   
   return (
     <div className="container px-5 pt-4">

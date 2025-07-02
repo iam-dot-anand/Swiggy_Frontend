@@ -1,7 +1,7 @@
 import React from "react";
 
 const NearMe = (props) => {
-  console.log("NearData");
+  // console.log("NearData");
   console.log();
   return (
     <div>

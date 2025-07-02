@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const  result  = useSelector((state) => state.signupReducer);
-  console.log("signUp result",  result);
-  console.log("signUp result.sucess", result.msg, result.success);
+  // console.log("signUp result",  result);
+  // console.log("signUp result.sucess", result.msg, result.success);
   const dispatch = useDispatch();
 
   const [signUpInfo, setSignUpInfo] = useState({

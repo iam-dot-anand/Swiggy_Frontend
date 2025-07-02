@@ -1,11 +1,10 @@
 // const initialState = {data:{},err:{}}
 const initialState = {msg:"",success:""}
 export const loginReducer = (state=initialState, action) => {
-  console.log("login action", action);
-  console.log("login state", state);
+  // console.log("login action", action);
+  // console.log("login state", state);
   switch (action.type) {
     case "LOGIN_REQUEST":
-        console.log();
       return (state);
 
     case "LOGIN_SUCCESS":

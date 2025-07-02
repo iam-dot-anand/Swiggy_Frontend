@@ -4,7 +4,7 @@ import DescData from "./DescData";
 
 export const Partner = (props) => {
   
-  console.log(props);
+  // console.log(props);
   return (
     <div className="w-100">
       <h4 className="fw-bold mb-3">Partner Onboarding</h4>

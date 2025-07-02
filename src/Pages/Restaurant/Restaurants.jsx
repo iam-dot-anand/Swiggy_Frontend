@@ -11,7 +11,7 @@ import { HashLoader } from "react-spinners";
 
 export const Restaurants = () => {
   const getRestaurant = useSelector((state) => state.ProductData);
-  console.log("getRestaurant",getRestaurant);
+  // console.log("getRestaurant",getRestaurant);
   //   const getCuisine = useSelector((state) => state.CuisineData);
   const dispatch = useDispatch();
   useEffect(() => {

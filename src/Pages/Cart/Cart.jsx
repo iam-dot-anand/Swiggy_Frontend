@@ -6,7 +6,7 @@ import EmptyCart from "./EmptyCart";
 export default function Cart() {
   const cartData = useSelector((state) => state.cartData);
   // const { restaurantName } = useSelector((state) => state.CuisineData);
-  console.log("cartData", cartData);
+  // console.log("cartData", cartData);
 
   let TotalAmount = cartData.length
     ? cartData.map((item) => item.foodPrice).reduce((prev, next) => prev + next)
