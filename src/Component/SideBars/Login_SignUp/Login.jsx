@@ -8,17 +8,20 @@ import { LOGIN_REQUEST } from "../../../Redux/Action/loginAction";
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const logedIn = useSelector((state) => state.loginReducer);
+
+  const loginState = useSelector((state) => state.loginReducer);
+  // console.log("loginState:", loginState); 
 
   const [loginInfo, setLoginInfo] = useState({
     email: "",
     password: "",
   });
-  let toastField = undefined;
+
+  const [toastField, setToastField] = useState(null);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    const updatedInfo = { ...loginInfo, [name]: value };
-    setLoginInfo(updatedInfo);
+    setLoginInfo((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e) => {
@@ -26,21 +29,33 @@ const Login = () => {
     const { email, password } = loginInfo;
     if (!email || !password) {
       if (toastField) toast.dismiss(toastField);
-      !email
-        ? showTost("Please enter email fields!")
-        : showTost("Please enter password fields!");
+      const msg = !email
+        ? "Please enter email field!"
+        : "Please enter password field!";
+      const toastId = toast.error(msg);
+      setToastField(toastId);
       return;
-    } else {
-      dispatch(LOGIN_REQUEST(loginInfo));
-      setLoginInfo({
-        email: "",
-        password: "",
-      });
     }
+
+    dispatch(LOGIN_REQUEST(loginInfo));
   };
-  const showTost = (message) => {
-    toastField = toast.error(message);
-  };
+
+  useEffect(() => {
+    console.log("useEffect triggered with loginState:", loginState);
+    if (loginState && loginState.msg) {
+      if (loginState.success) {
+        // alert()
+        toast.success("Login successful.", { toastId: "loginSuccess" });
+        setTimeout(() => {
+          navigate("/");
+        }, 1500);
+        setLoginInfo({ email: "", password: "" });
+      } else {
+        // alert("User not exist");
+        toast.error("User not exist.", { toastId: "loginError" });
+      }
+    }
+  }, [loginState, navigate]);
 
   return (
     <div>
@@ -59,24 +74,27 @@ const Login = () => {
             name="password"
             className="w-100 p-4 border-muted border-0 focus"
             type="password"
-            placeholder="Create Password"
+            placeholder="Your Password"
             value={loginInfo.password}
           />
         </div>
+
         <button
           className="border border-muted w-100 p-3 mt-4 orange fw-bold"
           type="submit"
         >
           <span className="text-white">LOGIN</span>
         </button>
+
         <p>
-          By clicking on Sign Up, I accept the{" "}
+          By clicking on Login, I accept the{" "}
           <span className="text-dark fw-medium">
             Terms & Conditions & Privacy Policy
           </span>
         </p>
       </form>
-      <ToastContainer />
+
+      <ToastContainer position="top-right" autoClose={3000} style={{ zIndex: 9999 }}/>
     </div>
   );
 };

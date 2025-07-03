@@ -2,7 +2,6 @@ import React from "react";
 
 const NearMe = (props) => {
   // console.log("NearData");
-  console.log();
   return (
     <div>
       <div className="fw-bold fs-4 mb-4">Best Places to Eat Across Cities</div>

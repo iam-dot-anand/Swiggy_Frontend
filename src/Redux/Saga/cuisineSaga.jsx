@@ -1,7 +1,7 @@
 import { put, call } from "redux-saga/effects";
 
 function* cuisineSaga(action) {
-  console.log("cuisineSaga", action);
+  // console.log("cuisineSaga", action);
   const { id, restaurantName } = action.RestaurantDetails;
   // console.log("cuisineData---->",id, restaurantName);
   const responseData = yield fetch("https://swiggy-backend-vaij.onrender.com/product");
