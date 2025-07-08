@@ -11,7 +11,7 @@ import { FiShoppingCart } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { RightSideBar } from "../SideBars/RightSideBar";
 import { LuMenu } from "react-icons/lu";
-import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";  
 
 export default function Navbar() {
   const { cartData, loginReducer } = useSelector((state) => state);

@@ -1,14 +1,29 @@
 export const cartData = (data = [], action) => {
-  // console.log("add cuisine reducer",action)
   switch (action.type) {
     case "AddToCart":
-      // console.log("reducer called", action);
-      return [...data,action.data];
+      const existingItemIndex = data.findIndex(
+        (item) => item._id === action.data._id
+      );
+      if (existingItemIndex !== -1) {
+        const updatedData = [...data];
+        updatedData[existingItemIndex] = {
+          ...updatedData[existingItemIndex],
+          quantity: updatedData[existingItemIndex].quantity + 1,
+        };
+        return updatedData;
+      } else {
+        return [ ...data,{ ...action.data, quantity: 1 }];
+      }
+
     case "RemoveToCart":
-      // console.log("reducer called", action);
-      const filterData = data.filter((item) => item._id !== action.id);
-      // console.log("filter", filterData);
-      return [...filterData];
+      return data
+        .map((item) =>
+          item._id === action.item._id
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        )
+        .filter((item) => item.quantity > 0);
+
     default:
       return data;
   }

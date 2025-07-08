@@ -8,16 +8,15 @@ import { useSelector } from "react-redux";
 export const TopRestaurant = () => {
 
   const getRestaurant = useSelector((state) => state.ProductData);
+  // console.log("getRestaurant----->",getRestaurant);
   const [slide, setSlides] = useState(0);
   const nextSlide = () => {
-        
         if (slide  < getRestaurant.length) {
             setSlides(slide + 3);
         }
     };
 
     const prevSlide = () => {
-        
         if (slide > 0) {
             setSlides(slide - 3);
         }

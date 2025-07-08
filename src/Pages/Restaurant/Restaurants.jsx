@@ -27,13 +27,13 @@ export const Restaurants = () => {
       <Filter />
       <div className="mapped-data">
         {getRestaurant?.length > 0 ? (
-          getRestaurant?.map((item) => (
+          getRestaurant?.map((item,index) => (
             <Link
               to={"/cuisine"}
-              style={{ textDecoration: "none", color: "black" }}
+              style={{ textDecoration: "none", color: "black" }} key={index}
             >
               <div
-                key={item.id}
+                key={item._id}
                 className="cards"
                 onClick={() =>
                   dispatch(CuisineByID(item._id, item.restaurantName))

@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import "./Cuisine.css";
 import { TiStarFullOutline } from "react-icons/ti";
 import { useDispatch, useSelector } from "react-redux";
-import { AddToCart, RemoveToCart } from "../../Redux/Action/action";
+import { AddToCart } from "../../Redux/Action/action";
 import { ToastContainer, toast } from "react-toastify";
 
 const Cuisine = () => {
   const { productById, restaurantName } = useSelector(
     (state) => state.CuisineData
   );
-  const { loginReducer } = useSelector((state) => state);
+  // const { loginReducer } = useSelector((state) => state);
   // console.log("loginreducer cuisine", loginReducer);
 
   const [logedIn, setLogedIn] = useState(null);
@@ -34,8 +34,8 @@ const Cuisine = () => {
       <p className="fw-bold fs-4 mb-0">{`Restaurant: ${restaurantName}`}</p>
       <hr className="mb-4"></hr>
       <div className=" ">
-        {productById.map((item) => (
-          <div key={item.id} className="d-flex mb-5">
+        {productById.map((item, index) => (
+          <div key={index} className="d-flex mb-5">
             <div className="ms-2 width_80">
               <p className="mb-0 fw-bold">{item.foodName}</p>
               <p className="mb-0 gap-2 d-flex rating fw-bolder">

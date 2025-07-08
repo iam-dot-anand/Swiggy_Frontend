@@ -5,10 +5,10 @@ export const AddToCart =(data)=>{
         data
     }
 }
-export const RemoveToCart =(id)=>{
+export const RemoveToCart =(item)=>{
     // console.log("action called",data);
     return {
         type:"RemoveToCart",
-        id
+        item
     }
 }
