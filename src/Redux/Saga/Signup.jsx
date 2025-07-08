@@ -3,7 +3,7 @@ import { call, put } from "redux-saga/effects";
 function* SignupSaga(action) {
   const { name, email, password } = action.data;
   try {
-    const response = yield call(fetch, "http://localhost:4000/auth/signUp", {
+    const response = yield call(fetch, "https://swiggy-backend-hsw4.onrender.com/auth/signUp", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

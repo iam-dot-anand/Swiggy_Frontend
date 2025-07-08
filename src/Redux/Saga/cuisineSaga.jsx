@@ -4,7 +4,7 @@ function* cuisineSaga(action) {
   // console.log("cuisineSaga", action);
   const { id, restaurantName } = action.RestaurantDetails;
   // console.log("cuisineData---->",id, restaurantName);
-  const responseData = yield fetch("http://localhost:4000/product");
+  const responseData = yield fetch("https://swiggy-backend-hsw4.onrender.com/product");
   const  {product}  = yield responseData.json();
   let productById = product.filter((items) => items.restaurant_id === id);
   // console.log("cuisineData---->",productById);

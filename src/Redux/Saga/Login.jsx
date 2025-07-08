@@ -4,7 +4,7 @@ function* LoginSaga(action) {
   // console.log("action-saga", action);
   const { email, password } = action.data;
   try {
-    const response = yield call(fetch, "http://localhost:4000/auth/login", {
+    const response = yield call(fetch, "https://swiggy-backend-hsw4.onrender.com/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

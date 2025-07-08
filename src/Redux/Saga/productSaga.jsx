@@ -1,7 +1,7 @@
 import {put} from "redux-saga/effects"
 
 function* productsSaga() {
-  let responseData = yield fetch("http://localhost:4000/restaurant");
+  let responseData = yield fetch("https://swiggy-backend-hsw4.onrender.com/restaurant");
   let {result} = yield responseData.json();
 
   let payload  = result

@@ -41,7 +41,7 @@ const Login = () => {
   };
 
   useEffect(() => {
-    console.log("useEffect triggered with loginState:", loginState);
+    // console.log("useEffect triggered with loginState:", loginState);
     if (loginState && loginState.msg) {
       if (loginState.success) {
         // alert()
